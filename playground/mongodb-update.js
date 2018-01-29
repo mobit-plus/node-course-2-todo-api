@@ -15,7 +15,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp',(err,db) => {
         //          completed: true
         //      }  
         //    },{
-        //        retureOriginal: false
+        //        returnOriginal: false
         //    }).then((result) =>{
         //        console.log(result);
         //    });
@@ -30,7 +30,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp',(err,db) => {
             age: -1
          } 
        },{
-           retureOriginal: true
+           returnOriginal: true
        }).then((result) =>{
            console.log(result);
        });

@@ -16,7 +16,7 @@ App.post('/todos',(req, res) =>{
     todo.save().then((docs) =>{
         res.send(docs);
     },(err) =>{
-        res.status(400).send(err);
+        res.send(err);
     });
 });
 
@@ -24,3 +24,4 @@ App.listen(3000,() =>{
     console.log('using the 3000 port');
 });
 
+module.exports = {App};

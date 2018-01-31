@@ -30,7 +30,7 @@ App.get('/todos',(req,res) => {
     });
 });
 
-App.listen(3000,() =>{
+App.listen(3000,() => {
     console.log('using the 3000 port');
 });
 

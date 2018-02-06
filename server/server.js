@@ -119,6 +119,25 @@ App.get('/users/me',authenticate, (req, res) => {
     res.send(req.user);
 });
 
+App.post('/users/login', (req,res) => {
+    var body = _.pick(req.body, ['email', 'password']);
+
+    //res.send(body);
+    User.findByCredentials(body.email, body.password).then((user) => {
+        res.send(user);
+    }).catch((e) => {
+        res.status(400).send();
+    });
+});
+
+App.delete('/users/me/token', authenticate, (req, res) => {
+    req.user.removeToken(req.token).then(() => {
+        res.status(200).send();
+    }, () => {
+        res.status(400).send();
+    });
+});
+
 
 App.listen(port,() => {
     console.log(`Started up at ${port}`);
